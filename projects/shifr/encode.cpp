@@ -28,8 +28,6 @@ int main() {
                 
                 int encoded_int = (input_int ^ key) ^ last_int;
                 char encoded_char = char(encoded_int);
-                
-                cout << input_int << "  " << key << "  " << last_int << "  " << encoded_int << "  " << input_char << "  " << encoded_char << endl;
                 output << encoded_char;
 
                 key ++;

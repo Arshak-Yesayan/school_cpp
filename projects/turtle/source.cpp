@@ -38,6 +38,7 @@ int main() {
     Turtle turtle(screen_width, screen_height, 0, 0, 0, 2550, 255, 0);
 
     turtle.pendown();
+    // turtle.show_draw(false);
     turtle.set_x(352);
     turtle.set_y(screen_height - 50);
 
@@ -59,6 +60,7 @@ int main() {
                 break;
         }
     }
+    // turtle.update();
 
     turtle.wait();
 

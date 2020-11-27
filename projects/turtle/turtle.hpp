@@ -48,6 +48,16 @@ class Turtle {
             }
         }
 
+        void update() {
+            SDL_RenderPresent(renderer);
+            quit();
+        }
+
+        void show_draw(bool show) {
+            show_pen = show;
+            quit();
+        }
+
         void forward(double length) {
             double radian = (double)angle / 180 * 3.141592654;
             double new_x = cos(radian) * length + x_pos;
@@ -55,7 +65,9 @@ class Turtle {
             if(pen_down) {
                 SDL_SetRenderDrawColor(renderer, pen_red, pen_green, pen_blue, 255);
                 SDL_RenderDrawLine(renderer, x_pos, y_pos, new_x, new_y);
-                SDL_RenderPresent(renderer);
+                if(show_pen) {
+                    SDL_RenderPresent(renderer);
+                }
             }
             x_pos = new_x;
             y_pos = new_y;
@@ -118,7 +130,7 @@ class Turtle {
         double x_pos = 0, y_pos = 0;
         int angle = 0;
         int pen_red = 0, pen_green = 0, pen_blue = 0;
-        bool pen_down = false, not_exit = true;
+        bool pen_down = false, not_exit = true, show_pen = true;
         SDL_Window* win;
         SDL_Event event;
         SDL_Renderer* renderer;

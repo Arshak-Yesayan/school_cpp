@@ -9,7 +9,7 @@ double get_distance(int x_1, int y_1, int x_2, int y_2) {
 
 int main() {
     int n, r;
-    int array[200];
+    int arr[200];
     int max_pos_1, max_pos_2;
     double max_distance = -1;
 

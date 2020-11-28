@@ -1,25 +1,31 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
-bool is_perfect(int n) {
-    int sum = 1;
-    if(n < 6)
-        return false;
-
-    for(int i = 2; i <= n / 2; i++) {
-        if(n % i == 0)
-            sum += i;
-    }
-    return sum == n;
+double get_distance(int x_1, int y_1, int x_2, int y_2) {
+    return  sqrt( pow(x_1 - x_2, 2) + pow(y_1 - y_2, 2) );
 }
 
 int main() {
-    int a;
+    int n, r;
+    int array[200];
+    int max_pos_1, max_pos_2;
+    double max_distance = 0;
 
-    cin >> a;
+    cin >> n >> r;
 
-    cout << is_perfect(a) << endl;
+    for(int i = 0; i < n; i++) {
+        cin >> array[2 * i] >> array[2 * i + 1];
+        for(int j = 0; j < i; j++) {
+            if(max_distance <= get_distance(array[2 * i], array[2 * i + 1], array[2 * j], array[2 * j + 1])) {
+                max_pos_1 = j;
+                max_pos_2 = i;
+            }
+        }
+    }
+
+    cout << max_pos_1 << " " << max_pos_2 << endl;
 
     return 0;
 }

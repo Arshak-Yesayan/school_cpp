@@ -16,9 +16,9 @@ int main() {
     cin >> n >> r;
 
     for(int i = 0; i < n; i++) {
-        cin >> array[2 * i] >> array[2 * i + 1];
+        cin >> arr[2 * i] >> arr[2 * i + 1];
         for(int j = 0; j < i; j++) {
-            double new_distance = get_distance(array[2 * i], array[2 * i + 1], array[2 * j], array[2 * j + 1]);
+            double new_distance = get_distance(arr[2 * i], arr[2 * i + 1], arr[2 * j], arr[2 * j + 1]);
             if(max_distance == -1 || max_distance > new_distance) {
                 max_pos_1 = j;
                 max_pos_2 = i;
